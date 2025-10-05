@@ -139,3 +139,397 @@
     </style>
 </head>
 <body>
+
+    <!-- Header / Navigation (Command Console) -->
+    <header class="sticky top-0 z-50 bg-[var(--primary-bg)]/90 backdrop-blur-md shadow-xl border-b border-[var(--card-bg)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold text-transparent bg-clip-text text-gradient">
+                // Q N: SHREYANSH DUGGARR
+            </h1>
+            <nav class="hidden sm:flex space-x-6 text-sm font-medium">
+                <a href="#summary" class="hover:text-[var(--accent-3)] transition duration-300">Mission Overview</a>
+                <a href="#skills" class="hover:text-[var(--accent-3)] transition duration-300">Tech Modules</a>
+                <a href="#projects" class="hover:text-[var(--accent-3)] transition duration-300">Mission Log</a>
+                <a href="#ai-insight" class="hover:text-[var(--accent-3)] transition duration-300">Neural Uplink</a>
+                <a href="#contact" class="hover:text-[var(--accent-3)] transition duration-300">Comms Array</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- 1. Hero Section (Quantum Nexus) -->
+        <section id="hero" class="pt-16 pb-24 text-center">
+            <div class="reveal-element">
+                <h2 class="text-7xl sm:text-8xl lg:text-9xl font-black mb-4 tracking-tight text-shadow-quantum">
+                    <span class="text-transparent bg-clip-text text-gradient">
+                        QUANTUM NEXUS
+                    </span>
+                </h2>
+                <p class="text-3xl sm:text-4xl font-light text-gray-300 mt-4">
+                    Systems Architecture $\vert$ Quantum Logic $\vert$ Real-World Impact
+                </p>
+                <div class="mt-10">
+                    <a href="#ai-insight" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl shadow-[var(--accent-2)]/50 transition duration-300 transform hover:scale-[1.03] gradient-button">
+                        Initiate Neural Uplink
+                        <!-- Lucide Icon: Zap -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Gemini AI Insight Generator (Neural Uplink Console) -->
+        <section id="ai-insight" class="reveal-element">
+            <h3 class="text-4xl font-bold mb-8 text-transparent bg-clip-text text-gradient border-b-2 border-[var(--accent-2)]/30 pb-2">// 01: Neural Uplink Console</h3>
+            <div class="module-card p-8 text-center">
+                <p class="text-xl leading-relaxed text-gray-300 mb-6">
+                    Run the Gemini analysis module to generate a dynamic, high-impact professional headline from the current profile data. **Processing power online.**
+                </p>
+                
+                <button 
+                    id="generateInsightButton"
+                    onclick="fetchGeminiInsight()"
+                    class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg shadow-[var(--accent-3)]/50 transition duration-300 transform hover:scale-[1.03] disabled:opacity-50 disabled:cursor-not-allowed gradient-button"
+                >
+                    <span id="buttonText">Generate Professional Headline</span>
+                    <div id="loader" class="loader ml-3"></div>
+                </button>
+                
+                <div id="insightOutput" class="mt-8 p-4 border border-[var(--accent-3)]/60 bg-[var(--primary-bg)] rounded-lg text-lg hidden text-left">
+                    <h4 class="text-[var(--accent-3)] font-semibold mb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="m18.42 16.61 1.77 1.77a2 2 0 0 0 2.83 0l-.36-.36a2 2 0 0 0-2.83 0L18.42 16.61Zm-3.14 3.13 1.77 1.77a2 2 0 0 0 2.83 0l-.36-.36a2 2 0 0 0-2.83 0L15.28 19.74ZM12 8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2v4l4-4h4a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4v2Z"/></svg>
+                        [OUTPUT] Optimized Headline:
+                    </h4>
+                    <p id="insightText" class="text-violet-200 italic font-medium"></p>
+                </div>
+                <p id="errorOutput" class="mt-4 text-red-400 hidden">An error occurred. Connection failed to the Neural Uplink.</p>
+            </div>
+        </section>
+
+        <!-- 3. Summary / About Section (Mission Overview) -->
+        <section id="summary" class="reveal-element">
+            <h3 class="text-4xl font-bold mb-8 text-transparent bg-clip-text text-gradient border-b-2 border-[var(--accent-2)]/30 pb-2">// 02: Mission Overview</h3>
+            <div id="profileSummaryText" class="module-card p-8">
+                <p class="text-xl leading-relaxed text-gray-300">
+                    Shreyansh Duggar is an **enthusiastic innovator** operating at the intersection of **quantum computing and artificial intelligence**, driven by curiosity and a dedication to real-world impact. Honored with the **Government of India’s INSPIRE Award** for proposing software-based solutions for community safety, he is actively developing **patent-pending AI-powered drone delivery designs**. Shreyansh is not only a project leader and founder but also a skilled public speaker, recognized as **Best English Speaker**, excelling in collaborative team environments and advanced tech societies.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. Skills Section (Tech Modules & Core Competencies) -->
+        <section id="skills" class="reveal-element">
+            <h3 class="text-4xl font-bold mb-8 text-transparent bg-clip-text text-gradient border-b-2 border-[var(--accent-2)]/30 pb-2">// 03: Tech Modules & Core Competencies</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Skill Card 1: Programming & AI -->
+                <div class="module-card p-6">
+                    <h4 class="text-2xl font-semibold mb-3 flex items-center text-[var(--accent-3)]">
+                        <!-- Lucide Icon: Satellite Dish -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-[var(--accent-3)]"><path d="M13.5 6.5l3.96 3.96M8.88 1.02l4.13 4.13M4.2 8.66l4.13 4.13"/><path d="M17.89 3.19l-4.13 4.13M3.19 17.89l4.13 4.13M12 22a8.5 8.5 0 0 0 6.38-14.79"/><path d="M12 22a8.5 8.5 0 0 1-6.38-14.79"/></svg>
+                        Neural Processing (AI/ML)
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300 ml-2">
+                        <li>Python, Machine Learning</li>
+                        <li>Generative AI Models, Speech Recognition</li>
+                        <li>AI Modules for Real-world Applications</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 2: Emerging Technologies -->
+                <div class="module-card p-6">
+                    <h4 class="text-2xl font-semibold mb-3 flex items-center text-[var(--accent-2)]">
+                        <!-- Lucide Icon: Infinity -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-[var(--accent-2)]"><path d="M12 12c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6zm0 0c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z"/></svg>
+                        Quantum & Emergent Systems
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300 ml-2">
+                        <li>Quantum Computing & Algorithms</li>
+                        <li>AI-Driven Drone Design & Delivery Systems (Patent Pending)</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 3: Product & Communication -->
+                <div class="module-card p-6">
+                    <h4 class="text-2xl font-semibold mb-3 flex items-center text-[var(--accent-1)]">
+                        <!-- Lucide Icon: Rocket -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-[var(--accent-1)]"><path d="M15 2v4M19 2v4M12 5V2"/><path d="M12 19.5v-7.5M10.89 12.06l-1.09-2.22a2 2 0 0 1 .45-2.11L12 5l1.75 2.73a2 2 0 0 1 .45 2.11l-1.09 2.22M12 19.5L5 22l-.5-2.5L7 16l-3.5-3.5L5 11l6.5-1.5L12 19.5Z"/></svg>
+                        Deployment & Communications
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300 ml-2">
+                        <li>MVP Creation & Project Management</li>
+                        <li>Public Speaking & Technical Writing</li>
+                        <li>Team Collaboration & Patent Application Process</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Projects & Leadership Section (Mission Log) -->
+        <section id="projects" class="reveal-element">
+            <h3 class="text-4xl font-bold mb-8 text-transparent bg-clip-text text-gradient border-b-2 border-[var(--accent-2)]/30 pb-2">// 04: Mission Log: Key Deployments</h3>
+            <div class="space-y-6">
+
+                <!-- Project 1: Aura Lifters Precision Drone System -->
+                <div class="module-card p-6 border-l-4 border-[var(--accent-3)] hover:border-[var(--accent-2)]">
+                    <h4 class="text-2xl font-semibold text-white">Project Lead: Aura Lifters Precision Drone System</h4>
+                    <p class="text-[var(--accent-3)] font-medium my-1">AI-powered Drone Delivery Startup (Founder)</p>
+                    <p class="text-gray-400 mt-2">
+                        Spearheaded the design and development of a unique drone delivery system. This initiative includes **patent-pending** technology focused on precision, efficiency, and autonomy in logistics.
+                    </p>
+                </div>
+
+                <!-- Project 2: Awaaz (Speech-to-Text) -->
+                <div class="module-card p-6 border-l-4 border-[var(--accent-3)] hover:border-[var(--accent-2)]">
+                    <h4 class="text-2xl font-semibold text-white">ML & AI Module Management at Awaaz</h4>
+                    <p class="text-[var(--accent-3)] font-medium my-1">Speech-to-Text for Accessibility</p>
+                    <p class="text-gray-400 mt-2">
+                        Managed and implemented Machine Learning and AI modules to enhance the accuracy and robustness of a speech-to-text platform aimed at improving digital accessibility.
+                    </p>
+                </div>
+
+                <!-- Project 3: INSPIRE Award Innovation -->
+                <div class="module-card p-6 border-l-4 border-[var(--accent-3)] hover:border-[var(--accent-2)]">
+                    <h4 class="text-2xl font-semibold text-white">INSPIRE Award Innovation</h4>
+                    <p class="text-[var(--accent-3)] font-medium my-1">Community Safety Technology (Govt. of India Recognized)</p>
+                    <p class="text-gray-400 mt-2">
+                        Proposed a software-based solution for enhancing community safety, earning the prestigious Government of India's **INSPIRE Award**.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Awards and Education (Launch History) -->
+        <section id="education" class="reveal-element">
+            <h3 class="text-4xl font-bold mb-8 text-transparent bg-clip-text text-gradient border-b-2 border-[var(--accent-2)]/30 pb-2">// 05: Launch History & Credentials</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Education Card -->
+                <div class="module-card p-6">
+                    <h4 class="text-2xl font-semibold mb-4 text-[var(--accent-3)] flex items-center">
+                        <!-- Lucide Icon: Planet -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-[var(--accent-3)]"><path d="M12 2a10 10 0 1 0 10 10c0-5.523-4.477-10-10-10z"/><path d="M12 4a8 8 0 1 1 0 16 8 8 0 0 1 0-16z"/><path d="M12 2v20"/></svg>
+                        Academic Origin Point
+                    </h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="text-lg font-medium text-white">Grizzly Vidyalaya (2023–2025)</p>
+                            <p class="text-gray-400">Achieved Outstanding Academic Record and the Best Performance Award (92%).</p>
+                        </li>
+                        <li>
+                            <p class="text-lg font-medium text-white">Ongoing Patent Development</p>
+                            <p class="text-gray-400">Currently pursuing a patent for a unique AI-driven drone delivery system.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Awards Card -->
+                <div class="module-card p-6">
+                    <h4 class="text-2xl font-semibold mb-4 text-[var(--accent-1)] flex items-center">
+                        <!-- Lucide Icon: Star -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-[var(--accent-1)]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Stellar Recognition
+                    </h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="text-lg font-medium text-white">INSPIRE Award Winner</p>
+                            <p class="text-gray-400">Government of India recognition for innovation in community safety tech.</p>
+                        </li>
+                        <li>
+                            <p class="text-lg font-medium text-white">Best English Speaker</p>
+                            <p class="text-gray-400">Recognized for excellence in public speaking and communication skills.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Contact & Connect Section (Communication Array) -->
+        <section id="contact" class="reveal-element text-center">
+            <h3 class="text-4xl font-bold mb-8 text-transparent bg-clip-text text-gradient border-b-2 border-[var(--accent-2)]/30 pb-2 inline-block px-4">// 06: Communication Array</h3>
+            <div class="module-card p-10">
+                
+                <!-- Phone Number -->
+                <div class="mb-8">
+                    <p class="text-xl text-gray-300 mb-2">Direct Uplink (Mobile)</p>
+                    <a href="tel:9693271599" class="text-3xl sm:text-4xl font-bold text-[var(--accent-3)] hover:text-white transition duration-300 flex items-center justify-center">
+                        <!-- Lucide Icon: Phone -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-4.71-4.71 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +91 96932 71599
+                    </a>
+                </div>
+
+                <p class="text-xl text-gray-300 mb-6 border-t border-[var(--card-bg)] pt-6">Digital Signature Paths</p>
+                <div class="flex justify-center space-x-10 sm:space-x-16">
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/shreyanshduggar01/" target="_blank" class="social-link text-gray-300 hover:text-[var(--accent-3)]" title="LinkedIn Profile">
+                        <!-- LinkedIn SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/shreyans.h1/" target="_blank" class="social-link text-gray-300 hover:text-[var(--accent-1)]" title="Instagram Profile">
+                        <!-- Instagram SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+
+                    <!-- WhatsApp Placeholder -->
+                    <a href="#" target="_blank" id="whatsapp-link" class="social-link text-gray-300 hover:text-green-400" title="WhatsApp">
+                        <!-- WhatsApp SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-whatsapp"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.4 5.3L2 22l5.7-1.4c1.6.9 3.4 1.4 5.3 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2zm4.8 14.8c-.2.2-.4.4-.7.5-.5.2-1.3.4-2.1.4-1.2 0-2.3-.3-3.4-.8-1.5-.7-2.7-1.9-3.4-3.4C6.5 11.3 6.2 10.2 6.2 9c0-.8.1-1.6.4-2.1.1-.3.3-.5.5-.7l.3-.3c.4-.4.8-.4 1.2-.4s.8 0 1.1.4c.2.2.4.4.6.8.2.4.3.8.3 1.2s-.1.7-.3 1.1c-.1.2-.3.3-.5.4-.1.1-.3.2-.5.3-.2.1-.4.2-.6.3l-.2.1c-.2.1-.3.2-.4.4-.1.2-.2.4-.2.6 0 .4.1.8.2 1.1.2.3.4.6.7.9.3.3.6.5 1.1.7.3.2.7.4 1.1.5.4.1.8.2 1.2.2.3 0 .6-.1.9-.2.2-.1.4-.2.6-.4.2-.2.4-.4.5-.6.1-.2.2-.4.2-.6 0-.3 0-.6-.1-.8-.1-.2-.2-.4-.3-.5l-.3-.5c-.1-.2-.2-.4-.2-.6s0-.4.1-.6c.1-.2.2-.4.3-.5l-.3-.5c-.2-.3-.4-.6-.6-.8.2-.2.4-.3.6-.4.2 0 .4-.1.6-.1h.6c.3 0 .6.1.9.2s.5.2.7.4c.2.2.4.4.5.6.1.2.2.4.2.6v.7c0 .4-.1.8-.2 1.2s-.4.8-.6 1.1c-.3.3-.6.6-1 .9z"/></svg>
+                    </a>
+                </div>
+                <p class="mt-4 text-sm text-gray-500">To enable WhatsApp contact, **edit the `href` attribute** of the WhatsApp link in the HTML to your preferred redirect link.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-24 py-8 border-t border-[var(--card-bg)] text-center text-gray-400">
+        <p>&copy; 2025 Shreyansh Duggar. Quantum Navigator Log End.</p>
+        <p class="mt-2 text-sm">System integrity nominal. Now featuring a modern, clean data console interface.</p>
+    </footer>
+
+    <!-- JavaScript for Scroll Reveal Animation & Gemini API Call -->
+    <script>
+        // Global Constants
+        const GEMINI_MODEL = 'gemini-2.5-flash-preview-05-20';
+        const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${""}`; // apiKey is set to empty string for runtime injection
+        
+        // DOM Elements
+        const button = document.getElementById('generateInsightButton');
+        const loader = document.getElementById('loader');
+        const buttonText = document.getElementById('buttonText');
+        const insightOutput = document.getElementById('insightOutput');
+        const insightText = document.getElementById('insightText');
+        const errorOutput = document.getElementById('errorOutput');
+
+        // Function to get profile text content
+        function getProfileContent() {
+            // Extracts key text content from the summary, skills, and projects sections
+            let content = '';
+            
+            // 1. Summary
+            const summaryElement = document.getElementById('profileSummaryText');
+            if (summaryElement) {
+                content += summaryElement.innerText.trim() + ".\n\n";
+            }
+            
+            // 2. Skills
+            content += "Skill Set: Python, Machine Learning, Generative AI Models, Speech Recognition, AI Modules for Real-world Applications. Quantum Computing, Quantum Algorithms, AI-Driven Drone Design & Delivery Systems. MVP Creation, Project Management, Patent Application Process.\n\n";
+
+            // 3. Leadership & Projects
+            content += "Leadership and Projects: Aura Lifters Precision Drone System Project Lead, Founder of AI-powered Drone Delivery Startup, ML & AI Module Management at Awaaz, INSPIRE Award Winner.\n\n";
+            
+            return content.trim();
+        }
+
+        // Gemini API fetch call with exponential backoff
+        async function fetchGeminiInsight() {
+            // Disable button and show loading state
+            button.disabled = true;
+            buttonText.textContent = 'Analyzing...';
+            loader.style.display = 'block';
+            insightOutput.classList.add('hidden');
+            errorOutput.classList.add('hidden');
+
+            const profileContent = getProfileContent();
+            
+            // Define the System Instruction and User Query
+            const systemPrompt = "You are a top-tier Career Consultant and AI expert. Your task is to analyze the provided profile text and generate a compelling, one-sentence professional headline (max 20 words) that captures the candidate's unique blend of emerging technologies (Quantum Computing, AI) and their real-world impact and leadership. Focus on innovation. Do not use conversational language or refer to the candidate by name. Output ONLY the headline text.";
+            
+            const userQuery = `Analyze the following profile and generate the headline: \n\n${profileContent}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                tools: [{ "google_search": {} }],
+            };
+            
+            let response = null;
+            let maxRetries = 3;
+            let delay = 1000; // 1 second
+
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    response = await fetch(GEMINI_API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        break; // Success
+                    } else if (response.status === 429 && i < maxRetries - 1) {
+                        // Retry logic for rate limiting
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2; // Exponential backoff
+                    } else {
+                        throw new Error(`API returned status ${response.status}`);
+                    }
+                } catch (error) {
+                    console.error("Fetch error:", error);
+                    if (i === maxRetries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+            
+            // Process the final response
+            try {
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const generatedText = candidate.content.parts[0].text.trim();
+                    insightText.textContent = generatedText;
+                    insightOutput.classList.remove('hidden');
+                } else {
+                    insightText.textContent = "AI analysis failed. Review Console for status.";
+                    insightOutput.classList.remove('hidden');
+                    console.error("Gemini API response missing content:", result);
+                }
+            } catch (e) {
+                console.error("Error processing API response:", e);
+                errorOutput.textContent = "Error: System could not stabilize Neural Uplink signal.";
+                errorOutput.classList.remove('hidden');
+            } finally {
+                // Reset button state
+                button.disabled = false;
+                buttonText.textContent = 'Generate Professional Headline';
+                loader.style.display = 'none';
+            }
+        }
+
+
+        // Scroll Reveal Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // trigger when 10% of element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const elements = document.querySelectorAll('.reveal-element');
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
+
